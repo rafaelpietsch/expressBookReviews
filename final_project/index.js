@@ -18,7 +18,7 @@ app.use("/customer/auth/*", function auth(req,res,next){
         let token = req.session.authorization['accessToken'];
 
         // Verify the JWT. Make sure to use the same secret key used for signing the token.
-        jwt.verify(token, "supersecret", (err, user) => {
+        jwt.verify(token, "access", (err, user) => {
             // If there's an error during verification (e.g., token expired, invalid signature)
             if (err) {
                 console.log(err); // Log the error for debugging
